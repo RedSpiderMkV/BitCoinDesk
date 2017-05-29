@@ -1,7 +1,9 @@
 
 import json
 import urllib2
+from datetime import datetime
 from Currency import Currency
+from Price import Price
 
 class CoindeskDataManager:
 	'''
@@ -28,8 +30,33 @@ class CoindeskDataManager:
 			@returns: dictionary of date and data objects
 		'''
 		
-		jsonData = self._getApiJsonResponse(self._apiEODPrice.format(startDate, endDate, currency))
-		return jsonData['bpi']
+		url = self._apiEODPrice.format(startDate, endDate, currency)
+		
+		jsonData = self._getApiJsonResponse(url)
+		eodData = jsonData['bpi']
+		
+		dataCollection = []
+		for eodDate in eodData:
+			dataCollection.append(Price(currency, eodDate, eodData[eodDate]))
+		
+		return dataCollection
+
+	def GetCurrentData(self, currency):
+		'''
+		Get the current data from the API.
+		
+			@param currency: currency code of interest
+			@returns: current bitcoin price data as a Price object.
+		'''
+		
+		url = self._apiCurrentPriceCode.format(currency)
+		
+		jsonData = self._getApiJsonResponse(url)
+		price = jsonData['bpi'][currency]['rate_float']
+		date = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+		
+		currentData = Price(currency, price, date)
+		return currentData
 
 	def GetSupportedCurrencies(self):
 		'''
