@@ -13,11 +13,11 @@ def printEODData(dataManager, startDate, endDate, currency):
 	eodData = dataManager.GetEndOfDayData(startDate, endDate, currency)
 	
 	for data in eodData:
-		printFormattedPriceData(priceData)
+		printFormattedPriceData(data)
 			
 def printCurrentData(dataManager, currency):
 	currentPrice = dataManager.GetCurrentData(currency)
-	printFormattedPriceData(priceData)
+	printFormattedPriceData(currentPrice)
 
 def printFormattedPriceData(priceData):
 	printData = '{}\t{}\t{}'.format(priceData.Currency, priceData.Price, priceData.Date)
@@ -25,6 +25,6 @@ def printFormattedPriceData(priceData):
 
 if __name__ == '__main__':
 	dataManager = CoindeskDataManager()
-	#printSupportedCurrencies(dataManager)
+	printSupportedCurrencies(dataManager)
 	#printEODData(dataManager, '2017-05-01', '2017-05-26', 'GBP')
-	printCurrentData(dataManager, 'GBP')
+	#printCurrentData(dataManager, 'GBP')

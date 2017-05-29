@@ -37,7 +37,7 @@ class CoindeskDataManager:
 		
 		dataCollection = []
 		for eodDate in eodData:
-			dataCollection.append(Price(currency, eodDate, eodData[eodDate]))
+			dataCollection.append(Price(currency, eodData[eodDate], eodDate))
 		
 		return dataCollection
 
