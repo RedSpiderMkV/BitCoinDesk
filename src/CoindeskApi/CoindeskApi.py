@@ -4,6 +4,7 @@ import urllib2
 from datetime import datetime
 from Currency import Currency
 from Price import Price
+from collections import OrderedDict
 
 class CoindeskDataManager:
 	'''
@@ -36,8 +37,8 @@ class CoindeskDataManager:
 		eodData = jsonData['bpi']
 		
 		dataCollection = []
-		for eodDate in eodData:
-			dataCollection.append(Price(currency, eodData[eodDate], eodDate))
+		for date in eodData:
+			dataCollection.append(Price(currency, eodData[date], date))
 		
 		return dataCollection
 
@@ -92,5 +93,5 @@ class CoindeskDataManager:
 		'''
 		
 		response = urllib2.urlopen(url)
-		data = json.load(response)
+		data = json.load(response, object_pairs_hook=OrderedDict)
 		return data
