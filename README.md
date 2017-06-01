@@ -13,5 +13,5 @@ For more information on the Coindesk API itself, see this link:
 BitcoinDataGrabber.py "currency" "startDate" "endDate"  
 Date format: yyyy-mm-dd
 
-Example
+Example  
 ```BitcoinDataGrabber.py GBP 2017-01-01 2017-01-31```
