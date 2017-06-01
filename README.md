@@ -7,3 +7,11 @@ Uses Python 2.7
 For more information on the Coindesk API itself, see this link:
 
 [Coindesk API](http://www.coindesk.com/api/)
+
+### Usage
+
+BitcoinDataGrabber.py "currency" "startDate" "endDate"  
+Date format: yyyy-mm-dd
+
+Example
+```BitcoinDataGrabber.py GBP 2017-01-01 2017-01-31```
