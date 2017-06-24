@@ -30,7 +30,7 @@ def main():
 		print '\n====BitCoinDataGrabber v0.1a====\n'
 		print 'Invalid command\n'
 		print 'Historic Data Usage: BitcoinDataGrabber.py <currency> <start> <end>'
-		print 'eg: BitcoinDataGrabber.py 2013-01-15 2013-01-31 GBP\n'
+		print 'eg: BitcoinDataGrabber.py GBP 2013-01-15 2013-01-31\n'
 		print 'Current Data Usage: BitcoinDataGrabber.py <currency>'
 		print 'eg: BitcoinDataGrabber.py GBP\n'
 		
