@@ -50,6 +50,8 @@ def main():
 		printCurrentData(dataManager, currency)
 		
 if __name__ == '__main__':
-	main()
-	
+	try:
+		main()
+	except Exception, e:
+		print 'Eror in retrieving data:', e
 
